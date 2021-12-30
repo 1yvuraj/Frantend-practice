@@ -1,0 +1,38 @@
+/*id tha */
+#btnAddFolder {
+    border-radius: 5px;
+    background-color: pink;
+    width: 200px;
+    margin-left: 600px;
+    padding: 20px;
+    cursor: pointer;
+}
+/* bo addfolder button ke houvar se 3 d effect */
+#btnAddFolder:hover {
+    transform: scale(1.02);
+}
+
+#divContainer {
+    border: 1px solid black;
+    display: flex;
+    margin-top: 10px;
+}
+
+.folder {
+    background-color: teal;
+    border-radius: 5px;
+    height: 100px;
+    width: 100px;
+    padding: 10px;
+    margin: 10px;
+}
+/* line dalne ke lia */
+.folder [action]{
+    text-decoration: underline;
+    cursor: pointer;
+}
+/* folder colour name ke lia */
+div[purpose=name]{
+    margin-top: 50px;
+    color: white;
+}
