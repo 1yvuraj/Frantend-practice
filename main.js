@@ -84,9 +84,11 @@
         divName.innerHTML = fname;
         //function call
         spanEdit.addEventListener("click", editFolder);
+        //function call
         spanDelete.addEventListener("click", deleteFolder);
+        //function call
         divFolder.setAttribute("fid", fid);
-
+        //divContainer jo box hai us me folder ak jo bana bo a jai ga
         divContainer.appendChild(divFolder);
     }
  //folders arry ko localstorage mme add karne ke lia
@@ -95,7 +97,7 @@
         let fjson = JSON.stringify(folders);
         localStorage.setItem("data", fjson);
     }
-    //refesh ke baad to sara rhe
+    //refesh ke baad to sara data jha hoga
     function loadDataFromStorage(){
         //sare item a jai ge is se
         let datafromlocalstorage = localStorage.getItem("data");
@@ -105,7 +107,7 @@
             folders = JSON.parse(datafromlocalstorage);
 
             let maxId = -1;
-            // folderka array ka chiz f me gya
+            // folder ka array ka chiz f me gya
             folders.forEach(f => {
                 //html me dekhne ke lia
                 addFolderHTMLToPage(f.name, f.id);
@@ -118,6 +120,6 @@
             fid = maxId;
         }
     }
-    
+    //refesh hote hi call and sara data show ho jai or ddFolderHTMLToPage call or ban jai ga
     loadDataFromStorage();
 })();
