@@ -5,15 +5,21 @@
     let pageTemplates = document.querySelector("#pageTemplates");
     let fid = 0;
     let folders = [];
-//jase hi click ho to kaam karo nuche wala
+    //jase hi click ho to kaam karo nuche wala
     btnAddFolder.addEventListener("click", addFolder);
 
     function addFolder(){
+        
         //folder name do
         let fname = prompt("Enter folder's name");
         //kuki folder name nhi dalo ge to bhi bana de ga is lia !! laga hai
         //!undefined to true hoga;
+        //if undefined hoga to alert
         if(fname!=undefined && fname.length>0){
+            
+            let fidx=folders.findIndex(f=>f.name==fname);
+            //fidx nhi hai to bana do warna alert
+            if(fidx==-1){
             fid++;
             addFolderHTMLToPage(fname, fid);
            //folder me push jis se local storage call me 
@@ -21,8 +27,17 @@
                 id: fid,
                 name: fname
             });
+            //data to storage me
             persistDataToStorage();
+           }
+           else 
+           {
+               alert(fname +" alredy exits")
+           }
 
+        }
+        else{
+            alert("please enter something");
         }
     }
     // edit feature
@@ -52,7 +67,7 @@
     function deleteFolder(){
         let divFolder = this.parentNode; 
         let divName = divFolder.querySelector("[purpose='name']");
-
+         // alert
         let flag = confirm("Do you want to delete " + divName.innerHTML);
         if(flag){
             divContainer.removeChild(divFolder);
@@ -75,6 +90,7 @@
         let divFolderTemplate = pageTemplates.content.querySelector(".folder");
         //copy bane ke lia 
         //true kuki uder content chia folder ka
+        //tamplte view hai ki is jase hona chia or copy bana ke karo 
         let divFolder = document.importNode(divFolderTemplate, true);
 
         let divName = divFolder.querySelector("[purpose='name']");
@@ -94,6 +110,7 @@
  //folders arry ko localstorage mme add karne ke lia
     function persistDataToStorage(){
         //folders arry ko localstorage mme add karne ke lia
+        //JSON.stringify object ko string convert jis se store ho jai
         let fjson = JSON.stringify(folders);
         localStorage.setItem("data", fjson);
     }
@@ -103,7 +120,8 @@
         let datafromlocalstorage = localStorage.getItem("data");
         //kahli na ho
         if(!!datafromlocalstorage){
-            //JSON.parse kara  jis array me aye or folders me dalwa lia
+            //JSON.parse kara  jis object  me aye or folders me dalwa lia
+            //JSON.parse object me karta hai
             folders = JSON.parse(datafromlocalstorage);
 
             let maxId = -1;
