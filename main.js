@@ -5,6 +5,8 @@
     let pageTemplates = document.querySelector("#pageTemplates");
     let fid = 0;
     let folders = [];
+    let cfolderId=-1
+    l
     //jase hi click ho to kaam karo nuche wala
     btnAddFolder.addEventListener("click", addFolder);
 
@@ -26,6 +28,7 @@
             folders.push({
                 id: fid,
                 name: fname
+                
             });
             //data to storage me
             persistDataToStorage();
@@ -83,7 +86,10 @@
             persistDataToStorage();
         }
     }
+    function viewFolder(){
+        alert("hloo");
 
+    }
     function addFolderHTMLToPage(fname, fid){
         //tamplte jab tak copy na karo bo hide hota hai
         //select tamplte ke folder ke content ko
@@ -96,6 +102,7 @@
         let divName = divFolder.querySelector("[purpose='name']");
         let spanEdit = divFolder.querySelector("[action='edit']");
         let spanDelete = divFolder.querySelector("[action='delete']");
+        let spanView= divFolder.querySelector("[action='view']");
         //name change in html
         divName.innerHTML = fname;
         //function call
@@ -103,6 +110,7 @@
         //function call
         spanDelete.addEventListener("click", deleteFolder);
         //function call
+        spanView.addEventListener("click", viewFolder);
         divFolder.setAttribute("fid", fid);
         //divContainer jo box hai us me folder ak jo bana bo a jai ga
         divContainer.appendChild(divFolder);

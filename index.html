@@ -1,22 +1,28 @@
 <html>
     <head>
-        <title>My first hands on frontend</title>
+        <title>My first frontend project</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <button id="btnAddFolder">Add Folder</button>
-        <! ---ak rectangle jis me kuch bhi dal sakte ho ap---> 
-        <div id="divContainer"></div>
-        <! ---jo baad me dalna chate hai jase popup then folder---> 
-        <!-- same same jasa karna tha is lia template me dala hai or copy bange or use kare ge  -->
-        <!-- copy is lia kuki real templte ho ho jai ga chaange barna -->
-        <template id="pageTemplates">
-            <div class="folder">
-                <span action="edit">edit</span>
-                <span action="delete">delete</span>
-                <div purpose="name"></div>
+        <!-- <h1>My first hands at frontend in HTML-CSS-JS</h1> -->
+        <button id = "add-folder-btn" class = "btnn">Add folders</button>
+        <div id = "breadcrumb">
+            <a class = "path" fid = "-1">Root</a>
+        </div>
+        <!-- ak rectangle jis me kuch bhi dal sakte ho ap-  -->
+        <div class = "folders-container"></div>
+        <!-- jo baad me dalna chate hai jase popup then folder-  
+        same same jasa karna tha is lia template me dala hai or copy bange or use kare ge 
+        copy is lia kuki real templte ho ho jai ga chaange barna -->
+        <template id = "my-template">
+            <div class = "folder">
+                <span action = "edit">Edit</span>
+                <span action = "delete">Delete</span>
+                <span action = "view">View</span>
+                <div purpose = "name"></div>
             </div>
+            <a class = "path"></a>
         </template>
-        <script type="text/javascript" src="main.js"></script>
+        <script type = "text/javascript" src = "main2.js"></script>
     </body>
 </html>

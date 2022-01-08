@@ -1,38 +1,53 @@
-/*id tha */
-#btnAddFolder {
-    border-radius: 5px;
-    background-color: pink;
-    width: 200px;
-    margin-left: 600px;
-    padding: 20px;
+body{
+    box-sizing: border-box;
+ }
+#add-folder-btn{
+    width : 200px;
+    height : 50px; 
+    border-radius : 5px;
+    margin-left: 650px;
+    margin-bottom: 10px;
     cursor: pointer;
 }
-/* bo addfolder button ke houvar se 3 d effect */
-#btnAddFolder:hover {
+#add-folder-btn:hover {
     transform: scale(1.02);
 }
-
-#divContainer {
-    border: 1px solid black;
+#breadcrumb{
     display: flex;
+    border: 1px solid black;
     margin-top: 10px;
+    margin-bottom: 10px;
 }
-
-.folder {
-    background-color: teal;
-    border-radius: 5px;
-    height: 100px;
-    width: 100px;
+.path{
+    color : black;
+    background-color : green;
+    padding: 5px;
+    border-right: 2px solid black;
+    cursor: pointer;
+}
+.path:hover{
+    background-color :black;
+    color : white;
+}
+.folders-container{
+    display: flex;
+    border-top: 1px solid black;
     padding: 10px;
-    margin: 10px;
 }
-/* line dalne ke lia */
-.folder [action]{
+.folder{
+    height: 110px;
+    width: 150px;
+    background-color :darkgoldenrod;
+    border-radius : 10px;
+    padding : 10px;
+    margin : 5px;
+}
+.folder [action] {
     text-decoration: underline;
     cursor: pointer;
 }
-/* folder colour name ke lia */
-div[purpose=name]{
-    margin-top: 50px;
-    color: white;
+
+.folder [purpose = 'name']{
+    margin-top: 20px;
+    font-weight: bold;
 }
