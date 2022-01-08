@@ -74,7 +74,8 @@
         if(!!newfName){
             //agar equal nhi to karo
             if(newfName != ofName){
-                //
+                //matlb ki bo folder me hai to nhi is lia child name same
+
                 let exists = folders.filter(f => f.pid == cfid).some(f => f.name == newfName);
                 if(exists == false){
                     let folder = folders.filter(f => f.pid == cfid).find(f => f.name == ofName);
@@ -103,7 +104,7 @@
         //folder id to be deleted
         let fidtbd = divFolder.getAttribute("fid");
         if(flag){
-            //
+            //jis ki match bo delete
             let exists = folders.some(f => f.pid == fidtbd);
             if(exists == false){
                 let fidx = folders.findIndex(f => f.id == fidtbd);
